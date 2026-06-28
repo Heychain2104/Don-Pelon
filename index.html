@@ -11,17 +11,22 @@
     font-family: Arial, sans-serif;
     background: #fff;
     color: #000;
+    scroll-behavior: smooth;
   }
 
   /* HEADER */
   header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 15px 30px;
     background: linear-gradient(90deg, #FFD700, #FFF8DC);
     position: sticky;
     top: 0;
+    z-index: 1000;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .logo {
@@ -34,12 +39,35 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit: cover;
   }
 
   .logo h1 {
     font-size: 20px;
     margin: 0;
+  }
+
+  /* VENTANAS NAV */
+  .nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    user-select: none;
+  }
+
+  .card:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: #FFD700;
   }
 
   /* HERO */
@@ -50,7 +78,6 @@
 
   .hero h2 {
     font-size: 40px;
-    margin-bottom: 10px;
   }
 
   .hero p {
@@ -92,6 +119,26 @@
     line-height: 1.5;
   }
 
+  /* GAMES */
+  .games {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .games h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  iframe {
+    width: 90%;
+    max-width: 800px;
+    height: 450px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+
   /* FOOTER */
   footer {
     text-align: center;
@@ -106,32 +153,59 @@
 
 <!-- HEADER -->
 <header>
-  <div class="logo">
-    <!-- Cambia este logo por el tuyo -->
-    <img src="https://yt3.ggpht.com/zTZq34dWGLHyGmBJXgzDQ3xcJhF9otRtmznaN7KUPF7MpBwkEkzhGd1_Lj-OvSCJpyd9xWoJXgg=s600-c-k-c0x00ffffff-no-rj-rp-mo" alt="logo">
-    <h1>Don Pelon</h1>
+
+  <div class="top">
+    <div class="logo">
+      <img src="https://yt3.ggpht.com/zTZq34dWGLHyGmBJXgzDQ3xcJhF9otRtmznaN7KUPF7MpBwkEkzhGd1_Lj-OvSCJpyd9xWoJXgg=s600-c-k-c0x00ffffff-no-rj-rp-mo">
+      <h1>Don Pelon</h1>
+    </div>
   </div>
+
+  <!-- VENTANAS -->
+  <div class="nav">
+    <div class="card" onclick="document.getElementById('home').scrollIntoView()">
+      🏠 Inicio
+    </div>
+
+    <div class="card" onclick="document.getElementById('about').scrollIntoView()">
+      👥 Nosotros
+    </div>
+
+    <div class="card" onclick="document.getElementById('games').scrollIntoView()">
+      🎮 Juegos
+    </div>
+  </div>
+
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section id="home" class="hero">
   <h2>Bienvenido al canal</h2>
   <p>Contenido creativo, gaming, edits y momentos épicos que no te puedes perder.</p>
 </section>
 
 <!-- ABOUT -->
-<section class="about">
+<section id="about" class="about">
+
   <h2>¿Quiénes somos nosotros?</h2>
 
   <div class="about-content">
-    <img src="https://static.wikia.nocookie.net/rage-guy/images/f/fa/718smiley.png/revision/latest?cb=20250316181146" alt="imagen">
-    
+    <img src="https://static.wikia.nocookie.net/rage-guy/images/f/fa/718smiley.png/revision/latest?cb=20250316181146">
+
     <p>
-      Bienvenido al canal de YouTube de Don Pelon. Aca estamos
-      enfocados en la creación de videos/contenido de distinas categorias.
-      Como viene siendo Roblox Studio, Roblox, directos, etc...
+      Bienvenido al canal de YouTube de Don Pelon. Aquí estamos enfocados en la creación de videos de distintas categorías como Roblox Studio, Roblox, directos y más contenido creativo.
     </p>
   </div>
+
+</section>
+
+<!-- GAMES -->
+<section id="games" class="games">
+
+  <h2>🎮 Juegos embebibles</h2>
+
+  <iframe src="https://scratch.mit.edu/projects/108566184/embed"></iframe>
+
 </section>
 
 <!-- FOOTER -->
